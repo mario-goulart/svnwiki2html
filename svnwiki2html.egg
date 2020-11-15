@@ -1,0 +1,15 @@
+;;; -*- scheme -*-
+
+((synopsis "A program to convert svnwiki syntax to HTML")
+ (author "Mario Domenech Goulart")
+ (license "BSD")
+ (category tools)
+ (dependencies qwiki
+               svnwiki-sxml
+               sxml-transforms
+               srfi-1
+               srfi-13)
+ (component-options
+  (csc-options "-O3" "-d1"))
+ (components
+  (program svnwiki2html)))
