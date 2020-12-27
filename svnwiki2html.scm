@@ -119,7 +119,7 @@ EOF
                  (set! title (cadr args))
                  (loop (cddr args)))
                 ((equal? arg "--menu")
-                 (set! menu (cadr args))
+                 (set! menu-file (cadr args))
                  (loop (cddr args)))
                 (else
                  (set! wiki-file arg)
