@@ -4,8 +4,6 @@
 
 (import scheme)
 (cond-expand
- (chicken-4
-  (use qwiki utils svnwiki-sxml sxml-transforms))
  ((or chicken-5 chicken-6)
   (import (chicken base)
           (chicken port))

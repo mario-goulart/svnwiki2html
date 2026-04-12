@@ -2,8 +2,6 @@
 
 (import scheme)
 (cond-expand
- (chicken-4
-  (use svnwiki2html))
  ((or chicken-5 chicken-6)
   (import (chicken base)
           (chicken format)
