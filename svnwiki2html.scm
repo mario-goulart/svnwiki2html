@@ -44,10 +44,10 @@
        (link (@ (rel "stylesheet")
                 (href ,(if css
                            css
-                           "http://wiki.call-cc.org/chicken.css"))
+                           "//wiki.call-cc.org/chicken.css"))
                 (type "text/css")))
        (link (@ (rel "icon")
-                (href "http://call-cc.org/favicon.ico")
+                (href "//call-cc.org/favicon.ico")
                 (type "image/x-icon"))))
       ,(if menu
            `(div (@ (id "menu"))
