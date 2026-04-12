@@ -11,7 +11,6 @@
  (else
   (error "Unsupported CHICKEN version.")))
 
-(define svnwiki2html-version "0.1.0")
 
 (define sxml->html
   (let ((rules `((literal *preorder* . ,(lambda (t b) b))
