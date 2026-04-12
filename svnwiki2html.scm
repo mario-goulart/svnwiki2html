@@ -28,9 +28,9 @@
      (lambda ()
        (svnwiki->sxml port)))))
 
-(define (wiki->html-page #!optional (port (current-input-port))
-                         #!key title css menu)
-  ;; Write HTML as a string to current-output-port
+(define (wiki->html-page #!key title css menu (port (current-input-port)))
+  ;; Read svnwiki text from `port' and write HTML as a string to
+  ;; current-output-port
   (sxml->html
    `((literal "<!DOCTYPE html>")
      (html
@@ -53,6 +53,8 @@
                                (with-input-from-file menu wiki->html)))))
            '())
       (div (@ (id "content"))
-           (literal ,(with-output-to-string wiki->html)))))))
+           (literal ,(with-output-to-string
+                       (lambda ()
+                         (wiki->html port)))))))))
 
 ) ;; end module
