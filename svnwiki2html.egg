@@ -6,10 +6,11 @@
  (category tools)
  (dependencies qwiki
                svnwiki-sxml
-               sxml-transforms
-               srfi-1
-               srfi-13)
+               sxml-transforms)
  (component-options
   (csc-options "-O3" "-d1"))
  (components
-  (program svnwiki2html)))
+  (extension svnwiki2html)
+  (program svnwiki2html-cmd
+           (install-name svnwiki2html)
+           (component-dependencies svnwiki2html))))
