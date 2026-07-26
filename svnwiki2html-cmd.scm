@@ -12,7 +12,7 @@
  (else
   (error "Unsupported CHICKEN version.")))
 
-(define svnwiki2html-version "0.1.1")
+(define svnwiki2html-version "0.1.3")
 
 (define (usage #!optional exit-code)
   (let* ((port (if (and exit-code (not (zero? exit-code)))
