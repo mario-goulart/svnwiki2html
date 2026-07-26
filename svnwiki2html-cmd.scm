@@ -6,6 +6,7 @@
   (import (chicken base)
           (chicken format)
           (chicken pathname)
+          (chicken port)
           (chicken process-context))
   (import svnwiki2html))
  (else
@@ -58,14 +59,15 @@ EOF
       (menu-file #f))
   (let loop ((args (command-line-arguments)))
     (if (null? args)
-        (if wiki-file
-            (display
-             (with-input-from-file wiki-file
+        (let ((wiki->html
                (lambda ()
                  (wiki->html-page css: css
                                   title: title
                                   menu: menu-file))))
-            (usage 1))
+          (display
+           (if wiki-file
+               (with-input-from-file wiki-file wiki->html)
+               (with-input-from-port (current-input-port) wiki->html))))
         (let ((arg (car args)))
           (cond ((or (equal? arg "-h")
                      (equal? arg "--help"))
